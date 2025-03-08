@@ -9,7 +9,7 @@ const Header = () => {
         <Image
           src={assets.avatar_portfolio}
           alt="Header"
-          className="rounded-full w-48"
+          className="rounded-full sm:w-48 w-32"
         />
       </div>
       <h3 className="flex items-end gap-2 text-xl md:text-2xl mb-3">
