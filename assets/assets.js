@@ -38,8 +38,10 @@ import right_arrow_bold_dark from "./right-arrow-bold-dark.png";
 import footer_bg_color from "./public/footer-bg-color.png";
 import android_studio_icon from "./android-studio-icon.png";
 import logo_portfolio from "./logo_portfolio.png";
+import avatar_portfolio from "./avatar_portfolio.png";
 
 export const assets = {
+  avatar_portfolio,
   logo_portfolio,
   android_studio_icon,
   footer_bg_color,

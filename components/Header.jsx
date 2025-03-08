@@ -7,9 +7,9 @@ const Header = () => {
     <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
       <div>
         <Image
-          src={assets.profile_img}
+          src={assets.avatar_portfolio}
           alt="Header"
-          className="rounded-full w-32"
+          className="rounded-full w-48"
         />
       </div>
       <h3 className="flex items-end gap-2 text-xl md:text-2xl mb-3">
