@@ -41,7 +41,7 @@ const Navbar = () => {
             src={assets.logo_portfolio}
             className="w-28 cursor-pointer mr-14"
           /> */}
-          <h1 className="text-2xl font-bold">My Portfolio</h1>
+          <h1 className="text-2xl font-bold">Portfolio</h1>
         </a>
 
         <ul
