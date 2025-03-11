@@ -2,16 +2,16 @@ import { assets, workData } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
 
-const Work = () => {
+const Work = ({ isDarkMode }) => {
   return (
     <div id="work" className="w-full px-[12%] py-10 scroll-mt-20">
       <h4 className="text-center mb-2 text-lg">My portfolio</h4>
       <h2 className="text-center text-5xl">My latest work</h2>
       {/* Introduce */}
       <p className="text-center max-w-2xl mx-auto mt-5 mb-12">
-        I'm a frontend web developer based in London. I have serious passion for
-        UI effects, animations and creating intuitive, dynamic user experiences.
-        Let's make something special
+        Here are some of my most recent projects, demonstrating my ability to
+        create high-quality applications with a focus on user experience and
+        performance.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {workData.map((item, index) => (
@@ -34,11 +34,17 @@ const Work = () => {
       </div>
       <div>
         <a
-          className="w-max flex items-center justify-between gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-blue-200 duration-500"
+          className="w-max flex items-center justify-between gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-blue-200 duration-500 dark:border dark:text-white dark:border-white/80 dark:hover:bg-gray-800"
           href=""
         >
           Show more{" "}
-          <Image src={assets.right_arrow_bold} alt="" className="w-4" />
+          <Image
+            src={
+              isDarkMode ? assets.right_arrow_white : assets.right_arrow_bold
+            }
+            alt=""
+            className="w-4"
+          />
         </a>
       </div>
     </div>

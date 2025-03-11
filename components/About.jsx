@@ -2,7 +2,7 @@ import { assets, infoList, toolsData } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
 
-const About = () => {
+const About = ({ isDarkMode }) => {
   return (
     <div id="about" className="w-full px-[12%] py-10 scroll-mt-20">
       <h4 className="text-center mb-2 text-lg">Introduction</h4>
@@ -27,17 +27,21 @@ const About = () => {
             {infoList.map((item, index) => (
               <li
                 key={index}
-                className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-purple-200 hover:-translate-y-1 duration-500 hover:shadow-lg"
+                className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-purple-200 hover:-translate-y-1 duration-500 hover:shadow-lg dark:border-white dark:hover:shadow-white/20 dark:hover:bg-gray-800"
               >
-                <Image src={item.icon} alt={item.title} className="w-7 mt-3" />
-                <h3 className="my-4 text-gray-700 font-semibold">
+                <Image
+                  src={isDarkMode ? item.iconDark : item.icon}
+                  alt={item.title}
+                  className="w-7 mt-3"
+                />
+                <h3 className="my-4 text-gray-700 font-light dark:text-white">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 text-sm">{item.description}</p>
+                <p className="text-gray-600 text-sm dark:text-white/80">{item.description}</p>
               </li>
             ))}
           </ul>
-          <h4 className="my-6 text-gray-700">Tool I user</h4>
+          <h4 className="my-6 text-gray-700 dark:text-white">Tool I user</h4>
           <ul className="flex items-center gap-3 sm:gap-5">
             {toolsData.map((tool, index) => (
               <li
