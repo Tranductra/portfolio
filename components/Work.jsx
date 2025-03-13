@@ -1,38 +1,76 @@
 import { assets, workData } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
+import { motion } from "motion/react";
 
 const Work = ({ isDarkMode }) => {
   return (
-    <div id="work" className="w-full px-[12%] py-10 scroll-mt-20">
-      <h4 className="text-center mb-2 text-lg">My portfolio</h4>
-      <h2 className="text-center text-5xl">My latest work</h2>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      id="work"
+      className="w-full px-[12%] py-10 scroll-mt-20"
+    >
+      <motion.h4
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="text-center mb-2 text-lg"
+      >
+        My portfolio
+      </motion.h4>
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="text-center text-5xl"
+      >
+        My latest work
+      </motion.h2>
       {/* Introduce */}
-      <p className="text-center max-w-2xl mx-auto mt-5 mb-12">
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        className="text-center max-w-2xl mx-auto mt-5 mb-12"
+      >
         Here are some of my most recent projects, demonstrating my ability to
         create high-quality applications with a focus on user experience and
         performance.
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      </motion.p>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 1 }}
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
+      >
         {workData.map((item, index) => (
-          <div
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.5 }}
             key={index}
             style={{ backgroundImage: `url(${item.bgImage})` }}
-            className="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group -z-10"
+            className="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer -z-10 group"
           >
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
-                <h2 className="font-semibold">{item.title}</h2>
+                <h2 className="font-semibold text-gray-700">{item.title}</h2>
                 <p className="text-sm text-gray-700">{item.description}</p>
               </div>
               <div className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-stone-900 group-hover:bg-lime-300 transition">
                 <Image src={assets.send_icon} alt="" className="w-5" />
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
-      <div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: 200 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        whileHover={{ scale: 1.05, transition: { duration: 1 } }}
+      >
         <a
           className="w-max flex items-center justify-between gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-blue-200 duration-500 dark:border dark:text-white dark:border-white/80 dark:hover:bg-gray-800"
           href=""
@@ -46,8 +84,8 @@ const Work = ({ isDarkMode }) => {
             className="w-4"
           />
         </a>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
